@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+     <title>Love at First Bite | Homemade Bread & Pastries</title>
+
+    <meta name="description"
+          content="Love at First Bite offers homemade bread, pastries, cakes, brownies, and other sweet treats made with love.">
+
+  
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #fff;
+            color: #333;
+        }
+
+    
+        header {
+            width: 100%;
+            background: white;
+            border-bottom: 1px solid #F3D5DE;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .topbar {
+            height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-circle {
+            width: 48px;
+            height: 48px;
+            background: #D96C8A;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .logo-text {
+            color: #D96C8A;
+            font-size: 23px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        nav {
+            display: flex;
+            gap: 35px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: #D96C8A;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .search {
+            width: 38px;
+            height: 38px;
+            border: 1px solid #E8C7D1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .cart {
+            width: 42px;
+            height: 42px;
+            background: #D96C8A;
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+    
+
+        .hero {
+            min-height: 520px;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.98) 0%,
+                    rgba(255,255,255,0.9) 40%,
+                    rgba(255,247,249,0.15) 75%
+                ),
+                url("https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1800&q=80");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: center;
+            padding: 70px 8%;
+        }
+
+        .hero-content {
+            max-width: 500px;
+        }
+
+        .hero-small {
+            color: #D96C8A;
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            line-height: 1.05;
+            color: #292929;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            color: #555;
+            font-size: 17px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .order-btn {
+            display: inline-block;
+            padding: 15px 34px;
+            background: #D96C8A;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .order-btn:hover {
+            background: #C45675;
+            transform: translateY(-2px);
+        }
+
+        .categories {
+            padding: 45px 8%;
+            background: #fff;
+        }
+
+        .category-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .category-title h2 {
+            font-size: 30px;
+            color: #292929;
+        }
+
+        .category-list {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .category {
+            width: 145px;
+            height: 115px;
+            border: 1px solid #F3D5DE;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .category:hover {
+            border-color: #D96C8A;
+            transform: translateY(-4px);
+            box-shadow: 0 5px 20px rgba(217,108,138,0.15);
+        }
+
+        .category-icon {
+            font-size: 34px;
+        }
+
+        .category span {
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        
+
+        .section {
+            padding: 65px 8%;
+            background: #FFF7F9;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            color: #292929;
+        }
+
+        .view-all {
+            color: #D96C8A;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+       
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .product {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #F3D5DE;
+            transition: 0.25s;
+        }
+
+        .product:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 30px rgba(217,108,138,0.12);
+        }
+
+        .product-img {
+            height: 230px;
+            overflow: hidden;
+            background: #FBE4EA;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+
+        .product:hover img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            font-size: 17px;
+            margin-bottom: 9px;
+            color: #333;
+        }
+
+        .product-info p {
+            font-size: 13px;
+            color: #777;
+            line-height: 1.4;
+            min-height: 38px;
+        }
+
+        .product-bottom {
+            margin-top: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            color: #D96C8A;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .add-btn {
+            border: none;
+            background: #D96C8A;
+            color: white;
+            padding: 9px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .add-btn:hover {
+            background: #C45675;
+        }
+
+      
+        .promo {
+            margin: 70px 8%;
+            min-height: 280px;
+            border-radius: 18px;
+            background:
+                linear-gradient(90deg, rgba(217,108,138,.95), rgba(217,108,138,.55)),
+                url("https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=1500&q=80");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: center;
+            padding: 50px;
+            color: white;
+        }
+
+        .promo-content {
+            max-width: 500px;
+        }
+
+        .promo h2 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .promo p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .promo-btn {
+            display: inline-block;
+            background: white;
+            color: #D96C8A;
+            padding: 13px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+       
+
+        footer {
+            background: #3B2930;
+            color: white;
+            padding: 55px 8% 25px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            color: #fff;
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            color: #E8D6DC;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        footer h3 {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 10px;
+        }
+
+        footer li a {
+            color: #E8D6DC;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        footer li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            border-top: 1px solid #61434D;
+            padding-top: 20px;
+            text-align: center;
+            color: #BFAAB2;
+            font-size: 13px;
+        }
+
+      
+
+        @media (max-width: 1000px) {
+
+            nav {
+                display: none;
+            }
+
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .topbar {
+                padding: 0 5%;
+            }
+
+            .logo-text {
+                font-size: 19px;
+            }
+
+            .hero {
+                min-height: 500px;
+                padding: 50px 6%;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+            .category {
+                width: 125px;
+            }
+
+            .section {
+                padding: 45px 6%;
+            }
+
+            .promo {
+                margin: 40px 6%;
+                padding: 35px;
+            }
+
+            .promo h2 {
+                font-size: 30px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+
+
+    <header>
+        <div class="topbar">
+
+            <div class="logo">
+                <div class="logo-circle">L</div>
+                <div class="logo-text">LOVE AT FIRST BITE</div>
+            </div>
+
+            <nav>
+                <a href="#">Home</a>
+                <a href="#new">What's New</a>
+                <a href="#best">Best Sellers</a>
+                <a href="#cakes">Cakes</a>
+                <a href="#pastries">Pastries</a>
+            </nav>
+
+            <div class="header-buttons">
+                <div class="search">⌕</div>
+                <div class="cart">🛒</div>
+            </div>
+
+        </div>
+    </header>
+
+
+    
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-small">
+               HOMEMADE BREAD & PASTRIES
+            </div>
+
+            <h1>
+                LOVE AT FIRST BITE
+            </h1>
+
+            <p>
+                At Love at First Bite, every treat is made to create a little love at first bite — crafted with warmth, care, and passion.
+            </p>
+
+            <a href="#best" class="order-btn">
+                ORDER NOW
+            </a>
+
+        </div>
+
+    </section>
+
+
+    
+
+    <section class="categories">
+
+        <div class="category-title">
+            <h2>Shop by Category</h2>       
+        </div>
+
+        <div class="category-list">
+
+            <div class="category">
+                <div class="category-icon">🎂</div>
+                <span>Cakes</span>
+            </div>
+
+            <div class="category">
+                <div class="category-icon">🍞</div>
+                <span>Breads</span>
+            </div>
+
+            <div class="category">
+                <div class="category-icon">🧁</div>
+                <span>Pastries</span>
+            </div>
+
+            <div class="category">
+                <div class="category-icon">🍫</div>
+                <span>Chocolate</span>
+            </div>
+
+            <div class="category">
+                <div class="category-icon">🎁</div>
+                <span>Bundles</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+   
+
+    <section class="section" id="new">
+
+        <div class="section-header">
+            <h2>What's New</h2>
+            <a href="#" class="view-all">VIEW ALL →</a>
+        </div>
+
+        <div class="products">
+
+            <div class="product">
+
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=700&q=80">
+                </div>
+
+                <div class="product-info">
+                    <h3>Brownies</h3>
+                    <p>Rich, fudgy brownies with a deliciously chocolatey flavor in every bite.</p>
+
+                    <div class="product-bottom">
+                        <span class="price">₱299</span>
+                        <button class="add-btn">Add</button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="product">
+
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80">
+                </div>
+
+                <div class="product-info">
+                    <h3>Black Forest Cake</h3>
+                    <p>Chocolate cake layered with cream and cherries.</p>
+
+                    <div class="product-bottom">
+                        <span class="price">₱750</span>
+                        <button class="add-btn">Add</button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="product">
+
+                <div class="product-img">
+                    <img src="banana.jpg">
+                </div>
+
+                <div class="product-info">
+                    <h3>Banana Cake</h3>
+                    <p>Soft and moist banana cake with a naturally sweet flavor in every bite.</p>
+
+                    <div class="product-bottom">
+                        <span class="price">₱160</span>
+                        <button class="add-btn">Add</button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="product">
+
+                <div class="product-img">
+                    <img src="Crema de Fruta Cake.jpg">
+                </div>
+
+                <div class="product-info">
+                    <h3>Crema de Fruta Cake</h3>
+                    <p>Soft layers of cake, creamy custard, sweet fruit, and a light gelatin topping in every bite.s</p>
+
+                    <div class="product-bottom">
+                        <span class="price">₱250</span>
+                        <button class="add-btn">Add</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+   
+    <section class="section" id="best">
+
+        <div class="section-header">
+            <h2>Best Sellers</h2>
+            <a href="#" class="view-all">VIEW ALL →</a>
+        </div>
+
+        <div class="products">
+
+            <div class="product">
+
+                <div class="product-img">
+                    <img src="chocolate.webp">
+                </div>
+
+                <div class="product-info">
+                    <h3>Dark Chocolate Cake</h3>
+                    <p>A classic dark chocolate cake perfect for celebrations.</p>
+
+                    <div class="product-bottom">
+                        <span class="price">₱600</span>
+                        <button class="add-btn">Add</button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="product">
+
+                <div class="product-img">
+                    <img src="mocha.jpg">
+                </div>
+
+                <div class="product-info">
+                    <h3>Mocha Cake</h3>
+                    <p>Soft cake with rich mocha flavor and cream.</p>
+
+                    <div class="product-bottom">
+                        <span class="price">₱600</span>
+                        <button class="add-btn">Add</button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="product">
+
+                <div class="product-img">
+                    <img src="silvanas.jpg">
+                </div>
+
+                <div class="product-info">
+                    <h3>Sylvanas</h3>
+                    <p>Crispy meringue layers filled with smooth buttercream and finished with a sweet, nutty touch.</p>
+
+                    <div class="product-bottom">
+                        <span class="price">₱200</span> 
+                        <button class="add-btn">Add</button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="product">
+
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=700&q=80">
+                </div>
+
+                <div class="product-info">
+                    <h3>Assorted Pastries</h3>
+                    <p>A delicious selection of freshly baked treats.</p>
+
+                    <div class="product-bottom">
+                        <span class="price">₱350</span>
+                        <button class="add-btn">Add</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="promo">
+
+        <div class="promo-content">
+
+            <h2>Love at First Bite</h2>
+
+            <p>
+               From the first bite to the last, every treat is made with love and sweetness.
+            </p>
+
+            <a href="#best" class="promo-btn">
+                ORDER NOW
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <footer>
+
+        <div class="footer-grid">
+
+            <div>
+                <div class="footer-logo">Love at First Bite</div>
+
+                <p>
+                    Bringing sweetness and happiness to every
+                    celebration through delicious cakes and pastries.
+                </p>
+            </div>
+
+            <div>
+                <h3>Shop</h3>
+
+                <ul>
+                    <li><a href="#">Cakes</a></li>
+                    <li><a href="#">Pastries</a></li>
+                    <li><a href="#">Breads</a></li>
+                    <li><a href="#">Bundles</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Help</h3>
+
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Delivery</a></li>
+                    <li><a href="#">Locations</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Follow Us</h3>
+
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">TikTok</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 Love at First Bite. All Rights Reserved.
+        </div>
+
+    </footer>
+
+
+
+    <script>
+
+        const buttons = document.querySelectorAll(".add-btn");
+
+        buttons.forEach(button => {
+
+            button.addEventListener("click", function() {
+
+                const original = this.innerText;
+
+                this.innerText = "Added ✓";
+
+                setTimeout(() => {
+                    this.innerText = original;
+                }, 1200);
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
